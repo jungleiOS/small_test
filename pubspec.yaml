@@ -43,6 +43,8 @@ dependencies:
   extended_image: 9.1.0
   easy_debounce: 2.0.3
   image: 4.7.2
+  file_saver: 0.2.14
+  path_provider: 2.1.5
 
 dev_dependencies:
   flutter_test:
