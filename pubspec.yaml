@@ -42,9 +42,11 @@ dependencies:
   screenshot: 3.0.0
   extended_image: 9.1.0
   easy_debounce: 2.0.3
-  image: 4.7.2
   file_saver: 0.2.14
   path_provider: 2.1.5
+  image: 4.7.2
+  image_picker: 1.2.0
+  color_models: 2.0.0
 
 dev_dependencies:
   flutter_test:

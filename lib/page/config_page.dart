@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'package:file_saver/file_saver.dart';
 import 'package:image/image.dart' as img;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:extended_image/extended_image.dart';

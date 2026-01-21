@@ -1,23 +1,30 @@
 [
   {
-    "title": "vivo Pad SE",
-    "image": "https://cdn.pixabay.com/photo/2025/12/10/23/01/turtle-10007526_1280.png",
-    "price": "¥2399",
-    "highlight": "1. 专业创作：设计、视频剪辑（适配 Procreate、Final Cut Pro）\n2. 生态协同：与 iPhone、Mac、Apple Watch 无缝协作",
+    "title": "荣耀 X60 Pro 8+256G",
+    "image": "https://i.postimg.cc/QtK7pWMb/荣耀X60Pro.png",
+    "price": "国补价：¥1116",
+    "highlight": "特点：性能均衡，超高频护眼屏，顶配支持卫星消息",
     "config": "1. 性能：A16 仿生芯片，CPU 提升 40%、GPU 增强 50%；存储 128GB 起步（最高 1TB）\n2. 屏幕：11 英寸 Liquid 视网膜屏（2388×1668 分辨率），P3 广色域，原彩显示，600 尼特亮度；搭配第二代 Apple Pencil（9ms 延迟）\n3. 系统：iPadOS，支持分屏、画中画、台前调度，通用剪贴板、AirDrop、Handoff 接力操作\n4. 续航：视频播放约 10 小时，20W 快充（30 分钟充 50%），兼容 USB-C 接口"
   },
   {
-    "title": "iPad Pro 2025 款（M4 芯片）",
-    "image": "https://cdn.pixabay.com/photo/2025/12/09/15/42/pansies-10004362_640.jpg",
-    "price": "¥2399",
-    "highlight": "1. 专业重度创作：4K 剪辑、3D 建模\n2. 苹果生态深度协同：与 iPhone、Mac 无缝协作",
+    "title": "荣耀 X70 8+128G",
+    "image": "https://i.postimg.cc/JnHXbBh9/荣耀X70.png",
+    "price": "国补价：¥1172",
+    "highlight": "特点：巨无霸电池，顶级防护，续航焦虑终结者",
     "config": "1. 性能：A16 仿生芯片，CPU 提升 40%、GPU 增强 50%；存储 128GB 起步（最高 1TB）\n2. 屏幕：11 英寸 Liquid 视网膜屏（2388×1668 分辨率），P3 广色域，原彩显示，600 尼特亮度；搭配第二代 Apple Pencil（9ms 延迟）\n3. 系统：iPadOS，支持分屏、画中画、台前调度，通用剪贴板、AirDrop、Handoff 接力操作\n4. 续航：视频播放约 10 小时，20W 快充（30 分钟充 50%），兼容 USB-C 接口"
   },
   {
-    "title": "MatePad Pro 12.2 流金典藏版",
-    "image": "https://cdn.pixabay.com/photo/2025/12/11/02/48/sacred-kingfisher-10007644_640.jpg",
-    "price": "¥2399",
-    "highlight": "1. 高端商务办公：多窗口协作、键鼠共享",
+    "title": "iQOO Z10x 8+128G",
+    "image": "https://i.postimg.cc/d1ZC8T0b/iqooz10x.png",
+    "price": "国补价：¥789",
+    "highlight": "特点：LCD护眼屏，大电池基础款，性价比之选",
+    "config": "1. 性能：A16 仿生芯片，CPU 提升 40%、GPU 增强 50%；存储 128GB 起步（最高 1TB）\n2. 屏幕：11 英寸 Liquid 视网膜屏（2388×1668 分辨率），P3 广色域，原彩显示，600 尼特亮度；搭配第二代 Apple Pencil（9ms 延迟）\n3. 系统：iPadOS，支持分屏、画中画、台前调度，通用剪贴板、AirDrop、Handoff 接力操作\n4. 续航：视频播放约 10 小时，20W 快充（30 分钟充 50%），兼容 USB-C 接口"
+  },
+  {
+    "title": "Redmi Note 14 Pro 8+128G",
+    "image": "https://i.postimg.cc/mD19QFDx/redminote14pro.png",
+    "price": "国补价：¥976",
+    "highlight": "特点：影像配置突出，高像素解析，防护等级高",
     "config": "1. 性能：A16 仿生芯片，CPU 提升 40%、GPU 增强 50%；存储 128GB 起步（最高 1TB）\n2. 屏幕：11 英寸 Liquid 视网膜屏（2388×1668 分辨率），P3 广色域，原彩显示，600 尼特亮度；搭配第二代 Apple Pencil（9ms 延迟）\n3. 系统：iPadOS，支持分屏、画中画、台前调度，通用剪贴板、AirDrop、Handoff 接力操作\n4. 续航：视频播放约 10 小时，20W 快充（30 分钟充 50%），兼容 USB-C 接口"
   }
 ]
