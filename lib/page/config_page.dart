@@ -25,6 +25,7 @@ class _ConfigPageState extends State<ConfigPage> {
   final ScreenshotController _screenshotController = ScreenshotController();
   final _imageLoadCompleteDebounce = 'imageLoadCompleteDebounce';
   bool _takingScreenshot = false;
+  double? _renderPaddingPaintExtent;
 
   @override
   void initState() {
@@ -58,6 +59,11 @@ class _ConfigPageState extends State<ConfigPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('config'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _manualScreenshot(),
+        tooltip: '保存截图',
+        child: Icon(Icons.save_alt),
       ),
       body: FutureBuilder(
         future: _loadTemplateData(),
@@ -98,10 +104,8 @@ class _ConfigPageState extends State<ConfigPage> {
                                         RenderSliverPadding>();
                                 final paintExtent =
                                     renderSliverPadding?.geometry?.paintExtent;
+                                _renderPaddingPaintExtent = paintExtent;
                                 debugPrint('paintExtent：$paintExtent');
-                                if (!_takingScreenshot) {
-                                  _screenshot(paintExtent);
-                                }
                               }),
                             );
                           },
@@ -119,6 +123,16 @@ class _ConfigPageState extends State<ConfigPage> {
     );
   }
 
+  void _manualScreenshot() async {
+    if (_takingScreenshot) {
+      debugPrint('截图正在进行中，请稍后再试');
+      return;
+    }
+
+    _takingScreenshot = true;
+    _screenshot(_renderPaddingPaintExtent);
+  }
+
   void _screenshot(double? cropHeight) async {
     final image = await _screenshotController.capture();
     if (image != null && cropHeight != null && mounted) {
@@ -127,57 +141,46 @@ class _ConfigPageState extends State<ConfigPage> {
           await _cropImageToHeight(image, cropHeight, devicePixelRatio);
       if (newImage != null && mounted) {
         _saveImage(newImage);
-        // _takingScreenshot = true;
-        // await Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-        //   return Scaffold(
-        //     body: Center(
-        //       child: Image.memory(
-        //         newImage,
-        //         fit: BoxFit.cover,
-        //       ),
-        //     ),
-        //   );
-        // }));
-        // _takingScreenshot = false;
       }
     }
   }
 
   void _saveImage(Uint8List image) async {
-  try {
-    // 获取下载目录
-    final downloadsDir = await getDownloadsDirectory();
-    if (downloadsDir == null) {
-      debugPrint('无法获取下载目录');
-      return;
+    try {
+      // 获取下载目录
+      final downloadsDir = await getDownloadsDirectory();
+      if (downloadsDir == null) {
+        debugPrint('无法获取下载目录');
+        return;
+      }
+
+      // 获取今天的日期并格式化为 "YYYY-MM-DD" 格式
+      DateTime now = DateTime.now();
+      String today =
+          "${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}";
+
+      // 创建今日文件夹路径
+      String todayFolderPath = '${downloadsDir.path}/$today';
+      Directory todayDir = Directory(todayFolderPath);
+
+      // 检查文件夹是否存在，如果不存在则创建
+      if (!await todayDir.exists()) {
+        await todayDir.create(recursive: true);
+      }
+
+      // 生成时间戳文件名
+      String fileName = '${DateTime.now().millisecondsSinceEpoch}.png';
+      String fullPath = '$todayFolderPath/$fileName';
+
+      // 保存文件
+      File file = File(fullPath);
+      await file.writeAsBytes(image);
+
+      debugPrint('图片已保存到: $fullPath');
+    } catch (e) {
+      debugPrint('保存图片失败: $e');
     }
-
-    // 获取今天的日期并格式化为 "YYYY-MM-DD" 格式
-    DateTime now = DateTime.now();
-    String today = "${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}";
-
-    // 创建今日文件夹路径
-    String todayFolderPath = '${downloadsDir.path}/$today';
-    Directory todayDir = Directory(todayFolderPath);
-
-    // 检查文件夹是否存在，如果不存在则创建
-    if (!await todayDir.exists()) {
-      await todayDir.create(recursive: true);
-    }
-
-    // 生成时间戳文件名
-    String fileName = '${DateTime.now().millisecondsSinceEpoch}.png';
-    String fullPath = '$todayFolderPath/$fileName';
-
-    // 保存文件
-    File file = File(fullPath);
-    await file.writeAsBytes(image);
-
-    debugPrint('图片已保存到: $fullPath');
-  } catch (e) {
-    debugPrint('保存图片失败: $e');
   }
-}
 
   void _calculateHeight(VoidCallback callback) {
     debugPrint('开始计算高度');
