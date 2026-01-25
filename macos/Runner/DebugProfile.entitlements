@@ -10,10 +10,6 @@
 	<true/>
     <key>com.apple.security.network.client</key>
     <true/>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-    </dict>
     <!-- 文件访问权限 -->
     <key>com.apple.security.files.user-selected.read-only</key>
     <true/>  <!-- 读取用户选择的文件 -->

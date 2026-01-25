@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:small_test/page/color_extractor_page.dart';
 import 'package:small_test/page/config_page.dart';
 import 'package:small_test/page/home_page.dart';
+import 'package:small_test/page/single_page.dart';
+import 'package:small_test/page/three_gallery_page.dart';
 
 class RootRouter {
   static final ValueNotifier<RoutingConfig> _configNotifier =
@@ -28,6 +30,16 @@ class RootRouter {
               path: 'color_extractor',
               name: 'color_extractor',
               builder: (context, state) => ColorExtractorPage(),
+            ),
+            GoRoute(
+              path: 'three_gallery',
+              name: 'three_gallery',
+              builder: (context, state) => ThreeDGallery(),
+            ),
+            GoRoute(
+              path: SinglePage.routeName,
+              name: SinglePage.routeName,
+              builder: (context, state) => SinglePage(),
             ),
           ],
         ),
